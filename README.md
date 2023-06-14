@@ -76,21 +76,24 @@ This infrastructure requires your domain to use the Akamai DNS nameservers. Head
 
 Each registrar has a way of configuring domains via their **web administration** panel. Allow at least 30 minutes after updating your domain to use the Akamai DNS nameservers.
 
-You can check if your domain is ready to be used by running the following command using the program `dig`:
+You can check if your domain is ready to be used by running the following command using the `dig` program:
+
+
+> Swap testdomain.com with your main domain
 
 ```
-dig @1.1.1.1 yourdomain.com NS
+dig @1.1.1.1 testdomain.com NS
 ```
 
-Check your `ANSWER SECTION` for the Akamai DNS nameservers:
+Check the returned `ANSWER SECTION` for the Akamai DNS nameservers:
 
 ```
 ;; ANSWER SECTION:
-yourdomain.com.		86400	IN	NS	ns1.linode.com.
-yourdomain.com.		86400	IN	NS	ns4.linode.com.
-yourdomain.com.		86400	IN	NS	ns2.linode.com.
-yourdomain.com.		86400	IN	NS	ns5.linode.com.
-yourdomain.com.		86400	IN	NS	ns3.linode.com.
+testdomain.com.		86400	IN	NS	ns1.linode.com.
+testdomain.com.		86400	IN	NS	ns4.linode.com.
+testdomain.com.		86400	IN	NS	ns2.linode.com.
+testdomain.com.		86400	IN	NS	ns5.linode.com.
+testdomain.com.		86400	IN	NS	ns3.linode.com.
 ```
 
 If you see a response like this, it means your domain is ready to be used.
