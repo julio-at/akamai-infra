@@ -9,7 +9,7 @@ crash.log
 **/.terraform/*
 
 # Ignore .tfvars files that may contain sensitive information
-*.tfvars
+terraform.tfvars
 
 # Ignore override files as they are usually used to override resources locally and should not be committed
 override.tf
