@@ -78,7 +78,6 @@ Each registrar has a way of configuring domains via their **web administration**
 
 You can check if your domain is ready to be used by running the following command using the `dig` program:
 
-
 > Swap testdomain.com with your main domain
 
 ```
@@ -109,7 +108,7 @@ and adjust all variables according to your infrastructure needs.
 | -------------------------- | ------------------------------------------------------------------------------------------- |
 | linode_api_token           | Required Linode API token to create resources.                                              |
 | linode_region              | Linode region all resources will be deployed to.                                            |
-| linode_domain              | This is your main domain. It will be used to host all deployments.                               |
+| linode_domain              | This is your main domain. It will be used to host all deployments.                          |
 | linode_domain_soa_email    | This email address is used to send you notifications about your Let's Encrypt certificates. |
 | linode_database_allow_list | This list allows specific public IP addresses to access your database cluster.              |
 | linode_database_name       | Name of the database that will be created for the `ssi-walt-id-login` service.              |
@@ -128,7 +127,7 @@ After you have copied the `example.config.tfvars` file into the `terraform` fold
 docker compose up
 ```
 
-This will build and spawn an image with all dependencies installed and the subsequent Terraform commands to spawn the infrastructure.
+This will be build the infrastructure with all of the necessary components and configurations automatically.
 
 2. Wait for Docker to finish. This is a process that can take a while due to the complexity of the infrastructure and DNS.
 
@@ -151,7 +150,7 @@ docker compose up
 
 # Destroying the infrastructure
 
-Destroying infrastructure is an action that should never be performed unless you wish for the 
+Destroying infrastructure is an action that should never be performed unless you wish for the
 resources to be deleted permanently without rolling back. This includes backups/snapshots and preregistered public IP addresses that point to existing services.
 
 If you wish to delete the infrastructure, you need to install the Terraform CLI tool in your computer
@@ -165,8 +164,7 @@ and perform a manual delete.
 terraform init && terraform destroy --auto-approve
 ```
 
-These two commands will download all Terraform package dependencies and automatically
-destroy resources without confirmation.
+These two commands will download all package dependencies into the `terraform` folder and automatically destroy all resources without confirmation.
 
 # Important notes to consider
 
