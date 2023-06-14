@@ -100,7 +100,7 @@ If you see a response like this, it means your domain is ready to be used.
 
 # Customize infrastructure resources
 
-After you've supplied the necessary tokens, head to the `[Linode settings]` block
+After you've supplied the necessary tokens, head to the `[Linode Settings]` block
 and adjust all variables according to your infrastructure needs.
 
 **[Linode Settings]**
