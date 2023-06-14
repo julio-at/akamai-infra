@@ -16,7 +16,7 @@ github_ghcr_owner  = "iccha-technologies"
 linode_api_token = "your_private_linode_api_token"
 # Linode region all resources will be deployed to.
 linode_region    = "us-central"
-# This is your main domain. It will be used to host all images.
+# This is your main domain. It will be used to host all deployments.
 linode_domain = "domain.com"
 # This email address is used to send you notifications about your Let's Encrypt certificates.
 linode_domain_soa_email = "john.doe@domain.com"

@@ -109,7 +109,7 @@ and adjust all variables according to your infrastructure needs.
 | -------------------------- | ------------------------------------------------------------------------------------------- |
 | linode_api_token           | Required Linode API token to create resources.                                              |
 | linode_region              | Linode region all resources will be deployed to.                                            |
-| linode_domain              | This is your main domain. It will be used to host all images.                               |
+| linode_domain              | This is your main domain. It will be used to host all deployments.                               |
 | linode_domain_soa_email    | This email address is used to send you notifications about your Let's Encrypt certificates. |
 | linode_database_allow_list | This list allows specific public IP addresses to access your database cluster.              |
 | linode_database_name       | Name of the database that will be created for the `ssi-walt-id-login` service.              |
