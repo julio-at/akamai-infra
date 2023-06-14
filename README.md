@@ -1,1 +1,0 @@
-# akamai-infra-adrian
