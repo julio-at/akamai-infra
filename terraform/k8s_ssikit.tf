@@ -60,6 +60,8 @@ resource "kubernetes_deployment_v1" "ssikit" {
       }
     }
   }
+
+  depends_on = [time_sleep.wait_linode_grace_period]
 }
 
 resource "kubernetes_service_v1" "ssikit" {
@@ -71,19 +73,19 @@ resource "kubernetes_service_v1" "ssikit" {
     type = "ClusterIP"
 
     port {
-      name = "ssikit-signatory"
+      name        = "ssikit-signatory"
       port        = 7001
       target_port = 7001
     }
 
     port {
-      name = "ssikit-custodian"
+      name        = "ssikit-custodian"
       port        = 7002
       target_port = 7002
     }
 
     port {
-      name = "ssikit-auditor"
+      name        = "ssikit-auditor"
       port        = 7003
       target_port = 7003
     }
@@ -92,4 +94,6 @@ resource "kubernetes_service_v1" "ssikit" {
       app = "ssikit"
     }
   }
+
+  depends_on = [kubernetes_deployment_v1.ssikit]
 }

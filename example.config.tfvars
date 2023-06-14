@@ -4,19 +4,23 @@
 # After adjusting this file, copy it into the "terraform" 
 # folder as "terraform.tfvars"
 
-# [GitHub settings]
+# [GitHub Settings - Required]
+#
+# Required GitHub configuration to access deployed images.
 default_github_pat = "ghp_..."
-github_ghcr_owner  = "iccha-"
+github_ghcr_owner  = "iccha-technologies"
 
-# [Linode settings]
-linode_region    = "us-central"
+# [Linode Settings]
+#
+# Required Linode API token to create resources.
 linode_api_token = "your_private_linode_api_token"
-# This is your main domain. It will be used to create the appropriate subdomains.
+# Linode region all resources will be deployed to.
+linode_region    = "us-central"
+# This is your main domain. It will be used to host all images.
 linode_domain = "domain.com"
-# This email address will be used to create the SOA record for your domain. It will
-# be used by Let's Encrypt to send you notifications about your certificates.
+# This email address is used to send you notifications about your Let's Encrypt certificates.
 linode_domain_soa_email = "john.doe@domain.com"
-# This allow list allows specific public IP addresses to access your database cluster.
+# This list allows specific public IP addresses to access your database cluster.
 # While not recommended, you can set this to 0.0.0.0/0 if you want to allow authentication
 # from any IP address.
 linode_database_allow_list = [
@@ -25,7 +29,8 @@ linode_database_allow_list = [
 # This is the name of the database that will be created for the ssi-walt-id-login service.
 linode_database_name = "nftmeta"
 
-# [ssi-walt-id-login settings]
+# [ssi-walt-id-login Settings]
+#
 # The following settings are used to configure the ssi-walt-id-login service. These
 # values are passed to the service as environment variables.
 ssikit_host           = "ssikit"

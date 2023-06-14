@@ -14,7 +14,7 @@ PGPASSWORD=${linode_database_postgresql.ssi-walt-id-login-database.root_password
 psql -h ${linode_database_postgresql.ssi-walt-id-login-database.host_primary} \
 -U ${linode_database_postgresql.ssi-walt-id-login-database.root_username} \
 -d postgres \
--c "CREATE DATABASE nftmeta;"
+-c "CREATE DATABASE ${var.linode_database_name};"
 EOT
 
     interpreter = ["bash", "-c"]

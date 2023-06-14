@@ -4,8 +4,5 @@ resource "helm_release" "cert-manager" {
   chart      = "cert-manager"
   namespace  = "cert-manager"
 
-  depends_on = [
-    kubernetes_namespace_v1.cert-manager,
-    helm_release.ingress-nginx,
-  ]
+  depends_on = [time_sleep.wait_linode_grace_period]
 }

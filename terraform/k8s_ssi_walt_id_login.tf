@@ -25,6 +25,8 @@ resource "kubernetes_config_map_v1" "ssi-walt-id-login" {
     ISSUER_DID     = var.ssikit_issuer_did
     VC_TEMPLATE_ID = var.ssikit_vc_template_id
   }
+
+  depends_on = [kubernetes_secret_v1.ghcr]
 }
 
 resource "kubernetes_deployment_v1" "ssi-walt-id-login" {
@@ -80,17 +82,11 @@ resource "kubernetes_deployment_v1" "ssi-walt-id-login" {
         }
 
         restart_policy = "Always"
-
-
       }
     }
   }
 
-  depends_on = [
-    kubernetes_secret_v1.ghcr,
-    kubernetes_config_map_v1.ssi-walt-id-login,
-    kubernetes_deployment_v1.ssikit
-  ]
+  depends_on = [kubernetes_config_map_v1.ssi-walt-id-login]
 }
 
 resource "kubernetes_service_v1" "ssi-walt-id-login" {
@@ -110,6 +106,8 @@ resource "kubernetes_service_v1" "ssi-walt-id-login" {
       app = "ssi-walt-id-login"
     }
   }
+
+  depends_on = [kubernetes_deployment_v1.ssi-walt-id-login]
 }
 
 resource "kubernetes_ingress_v1" "ssi-walt-id-login" {
@@ -152,4 +150,6 @@ resource "kubernetes_ingress_v1" "ssi-walt-id-login" {
       }
     }
   }
+
+  depends_on = [kubernetes_deployment_v1.ssi-walt-id-login]
 }
